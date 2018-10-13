@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installation.html"><strong aria-hidden="true">2.1.</strong> Installation</a></li><li><a href="hello_world.html"><strong aria-hidden="true">2.2.</strong> Hello World</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installation.html"><strong aria-hidden="true">2.1.</strong> Installation</a></li><li><a href="hello_world.html"><strong aria-hidden="true">2.2.</strong> Hello World</a></li></ol></li><li><a href="basic_concepts.html"><strong aria-hidden="true">3.</strong> Basic Concepts</a></li><li><ol class="section"><li><a href="variables.html"><strong aria-hidden="true">3.1.</strong> Variables</a></li><li><a href="data_types.html"><strong aria-hidden="true">3.2.</strong> Data Types</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -177,6 +177,37 @@ If you doubleclick a file, the IDE will attempt to open it in...</p>
 <p>Once ran, Dream Seeker will open and you will see Hello World printed on the top left of the window. Congratulations!</p>
 <a class="header" href="#anatomy-of-a-dm-program" id="anatomy-of-a-dm-program"><h2>Anatomy of a DM program</h2></a>
 <p>So, what exactly happened? Basically, you're making something special happen when a <code>mob</code>, which in this example is a player aka you, logs in. The special behaviour is outputting the string <code>Hello World</code> to the whole world, which is basically only you in our example. Notice the indentation before the second line, it isn't an error, it's actually vital in DM programs. If you mess up the indentation, your program will fail to compile at best, or have undefined behaviour at worst. How you indent code is up to you, you can use spaces or tabs, as long as you're coherent in your whole project. Mixing indentation types up will cause your project to fail compiling.</p>
+<a class="header" href="#basic-concepts" id="basic-concepts"><h1>Basic Concepts</h1></a>
+<p>This chapter covers concepts that are shares by nearly all programming languages, such as conditional statements, loops, variables, operators and the such. If DM is your first programming language, you have to read this. If not, quickly skimming over it may be useful to see DM's syntax for basic concepts.</p>
+<p>Keywords used for the concept above and others cannot be used as names of variables, functions or such, or a conflict would happen. If you try to, a compiler error will warn you.</p>
+<a class="header" href="#variables" id="variables"><h1>Variables</h1></a>
+<p>Variables are data containers, which, as the name implies, can get their data changed through assignment operations. If you want to store some data, you will use a variable. The basic syntax is:</p>
+<pre><code>var myVariable = initialValue
+</code></pre>
+<p>where <code>var</code> is the keyword telling the compiler we're defining a new variable, <code>myVariable</code> is the variable's name, which cannot be a reserved word like <code>var</code> as we said previously. <code>= initialValue</code> is used to assign an initial value to the variable. This is optional, and if omitted, the variable's value will be <code>null</code>, a special value that means the variable holds nothing.
+A key difference in other languages like C is that primitive variables don't need the user to define their type, you can do</p>
+<pre><code>var myVar = &quot;Hello World&quot;
+myVar = 1
+</code></pre>
+<p>Without any sort of error. Even though this will work with any sort of var type, we will see futher on that it can cause issues when our variables hold objects and we try to access its methods or such, but we will expand on this later.</p>
+<a class="header" href="#type-casting" id="type-casting"><h2>Type casting</h2></a>
+<p>As we said previously, variables can hold primitive data such as numbers, letters, booleans, but they can also hold objects, which is fundamental for an Object Oriented language like DM. Say you have an <code>/obj/honk</code> object, you're fully able to assign it to a type-less var as we did before with our string and number, but you won't be able to actually access any of the object's data. For now, just remember that the syntax for typecasting is:</p>
+<pre><code>var/your/type/varname = initialValue
+</code></pre>
+<a class="header" href="#data-types" id="data-types"><h1>Data Types</h1></a>
+<p>Even though variables do not need to have their types defined for primitive data, different types still exist, and variables need their type defined if you are going to assign them an object and you plan to use the variable to access some of the object's properties.</p>
+<a class="header" href="#primitive-types" id="primitive-types"><h2>Primitive types</h2></a>
+<p>Primitive types are types that do not need variables to be typecasted anyhow. This includes:</p>
+<ul>
+<li>Numeric values <code>1, 24.3, 3.14</code></li>
+<li>Strings <code>&quot;a&quot;, &quot;abc&quot;</code></li>
+<li>Booleans <code>TRUE, FALSE</code></li>
+<li>Null <code>null</code></li>
+</ul>
+<p>You can simply assign them to your variable, and access the variable content. In particular, notice how lists aren't considered a primitive type. Even though assigning a list to a var won't cause an error normally, it's bad practice to not typecast it, since a list is essentially an object, and you won't be able to access list methods and properties on a non-typecasted list.
+Null is considered a primitive type because it can be assigned to any var, and since null means basically no value, you aren't going to access any of its properties since it has none.</p>
+<a class="header" href="#object-types" id="object-types"><h2>Object types</h2></a>
+<p>Object types are the core of any object oriented programming language, like Dream Maker. Since it is such an important project, it will be explained futher on in its own chapter.</p>
 
                     </main>
 

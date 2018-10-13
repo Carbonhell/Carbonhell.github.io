@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Getting Started - The green book</title>
+        <title>Variables - The green book</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="getting_started.html" class="active"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installation.html"><strong aria-hidden="true">2.1.</strong> Installation</a></li><li><a href="hello_world.html"><strong aria-hidden="true">2.2.</strong> Hello World</a></li></ol></li><li><a href="basic_concepts.html"><strong aria-hidden="true">3.</strong> Basic Concepts</a></li><li><ol class="section"><li><a href="variables.html"><strong aria-hidden="true">3.1.</strong> Variables</a></li><li><a href="data_types.html"><strong aria-hidden="true">3.2.</strong> Data Types</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installation.html"><strong aria-hidden="true">2.1.</strong> Installation</a></li><li><a href="hello_world.html"><strong aria-hidden="true">2.2.</strong> Hello World</a></li></ol></li><li><a href="basic_concepts.html"><strong aria-hidden="true">3.</strong> Basic Concepts</a></li><li><ol class="section"><li><a href="variables.html" class="active"><strong aria-hidden="true">3.1.</strong> Variables</a></li><li><a href="data_types.html"><strong aria-hidden="true">3.2.</strong> Data Types</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -136,25 +136,33 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#getting-started" id="getting-started"><h1>Getting Started</h1></a>
-<p>This is where your journey with BYOND starts. The guide will not assume any sort of prior knowledge, such as how operators work. In this chapter, we'll discuss:</p>
-<ul>
-<li>Installing BYOND and starting a new DM project</li>
-<li>Writing a program that prints <code>Hello World</code> in the server's console</li>
-</ul>
+                        <a class="header" href="#variables" id="variables"><h1>Variables</h1></a>
+<p>Variables are data containers, which, as the name implies, can get their data changed through assignment operations. If you want to store some data, you will use a variable. The basic syntax is:</p>
+<pre><code>var myVariable = initialValue
+</code></pre>
+<p>where <code>var</code> is the keyword telling the compiler we're defining a new variable, <code>myVariable</code> is the variable's name, which cannot be a reserved word like <code>var</code> as we said previously. <code>= initialValue</code> is used to assign an initial value to the variable. This is optional, and if omitted, the variable's value will be <code>null</code>, a special value that means the variable holds nothing.
+A key difference in other languages like C is that primitive variables don't need the user to define their type, you can do</p>
+<pre><code>var myVar = &quot;Hello World&quot;
+myVar = 1
+</code></pre>
+<p>Without any sort of error. Even though this will work with any sort of var type, we will see futher on that it can cause issues when our variables hold objects and we try to access its methods or such, but we will expand on this later.</p>
+<a class="header" href="#type-casting" id="type-casting"><h2>Type casting</h2></a>
+<p>As we said previously, variables can hold primitive data such as numbers, letters, booleans, but they can also hold objects, which is fundamental for an Object Oriented language like DM. Say you have an <code>/obj/honk</code> object, you're fully able to assign it to a type-less var as we did before with our string and number, but you won't be able to actually access any of the object's data. For now, just remember that the syntax for typecasting is:</p>
+<pre><code>var/your/type/varname = initialValue
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="basic_concepts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="installation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="data_types.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -166,13 +174,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="basic_concepts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="installation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="data_types.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

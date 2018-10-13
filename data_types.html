@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Getting Started - The green book</title>
+        <title>Data Types - The green book</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="getting_started.html" class="active"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installation.html"><strong aria-hidden="true">2.1.</strong> Installation</a></li><li><a href="hello_world.html"><strong aria-hidden="true">2.2.</strong> Hello World</a></li></ol></li><li><a href="basic_concepts.html"><strong aria-hidden="true">3.</strong> Basic Concepts</a></li><li><ol class="section"><li><a href="variables.html"><strong aria-hidden="true">3.1.</strong> Variables</a></li><li><a href="data_types.html"><strong aria-hidden="true">3.2.</strong> Data Types</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installation.html"><strong aria-hidden="true">2.1.</strong> Installation</a></li><li><a href="hello_world.html"><strong aria-hidden="true">2.2.</strong> Hello World</a></li></ol></li><li><a href="basic_concepts.html"><strong aria-hidden="true">3.</strong> Basic Concepts</a></li><li><ol class="section"><li><a href="variables.html"><strong aria-hidden="true">3.1.</strong> Variables</a></li><li><a href="data_types.html" class="active"><strong aria-hidden="true">3.2.</strong> Data Types</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -136,27 +136,31 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#getting-started" id="getting-started"><h1>Getting Started</h1></a>
-<p>This is where your journey with BYOND starts. The guide will not assume any sort of prior knowledge, such as how operators work. In this chapter, we'll discuss:</p>
+                        <a class="header" href="#data-types" id="data-types"><h1>Data Types</h1></a>
+<p>Even though variables do not need to have their types defined for primitive data, different types still exist, and variables need their type defined if you are going to assign them an object and you plan to use the variable to access some of the object's properties.</p>
+<a class="header" href="#primitive-types" id="primitive-types"><h2>Primitive types</h2></a>
+<p>Primitive types are types that do not need variables to be typecasted anyhow. This includes:</p>
 <ul>
-<li>Installing BYOND and starting a new DM project</li>
-<li>Writing a program that prints <code>Hello World</code> in the server's console</li>
+<li>Numeric values <code>1, 24.3, 3.14</code></li>
+<li>Strings <code>&quot;a&quot;, &quot;abc&quot;</code></li>
+<li>Booleans <code>TRUE, FALSE</code></li>
+<li>Null <code>null</code></li>
 </ul>
+<p>You can simply assign them to your variable, and access the variable content. In particular, notice how lists aren't considered a primitive type. Even though assigning a list to a var won't cause an error normally, it's bad practice to not typecast it, since a list is essentially an object, and you won't be able to access list methods and properties on a non-typecasted list.
+Null is considered a primitive type because it can be assigned to any var, and since null means basically no value, you aren't going to access any of its properties since it has none.</p>
+<a class="header" href="#object-types" id="object-types"><h2>Object types</h2></a>
+<p>Object types are the core of any object oriented programming language, like Dream Maker. Since it is such an important project, it will be explained futher on in its own chapter.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="variables.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="installation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -166,15 +170,11 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="variables.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a href="installation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
