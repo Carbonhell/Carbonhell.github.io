@@ -466,8 +466,8 @@ function playpen_text(playpen) {
             .from(document.querySelectorAll('code'))
             .forEach(function (block) {
                 if (block.classList.length > 1) {
-                    if (!(block.classList.contains(codebase) || block.classList.contains("language-"+codebase))) {block.style.display = "none";}
-                    else {block.style.display = "inherit";}
+                    if (!(block.classList.contains(codebase) || block.classList.contains("language-"+codebase))) {block.parentElement.style.display = "none";}
+                    else {block.parentElement.style.display = "inherit";}
                 }
         });
     }
