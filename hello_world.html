@@ -100,6 +100,13 @@
                                 <i class="fa fa-search"></i>
                             </button>
                             
+                            <button id="codebase-toggle" class="icon-button" type="button" title="Change codebase" aria-label="Change codebase" aria-haspopup="true" aria-expanded="false" aria-controls="codebase-list">
+                                <i class="fa fa-tags"></i>
+                            </button>
+                            <ul id="codebase-list" class="theme-popup" aria-label="Codebases" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="raw">BYOND raw <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="tg">/tg/station</button></li>
+                            </ul>
                         </div>
 
                         <h1 class="menu-title">The green book</h1> 
@@ -140,8 +147,11 @@
 <p>Open Dream Maker and let's write your first DM program. To do so, you must create a new environment (the .dme file), from the <code>New</code> tab top-left. Select the project directory and its name, and the IDE will prompt you to create your first .dm file. Simply press OK, and the file will automatically open with some code already in it. Feel free to delete all of it, you won't need this yet.</p>
 <a class="header" href="#printing-hello-world" id="printing-hello-world"><h2>Printing Hello World</h2></a>
 <p>Once the file is completely empty, try to compile this snippet and run it as we said in the previous chapter (CTRL+K and <code>Build</code>, <code>Run</code>):</p>
-<pre><code>/mob/Login()
-    world &lt;&lt; &quot;Hello world&quot;
+<pre><code class="language-raw">    /mob/Login()
+        world &lt;&lt; &quot;Hello world&quot;
+</code></pre>
+<pre><code class="language-tg">    /mob/Login()
+        to_chat(world, &quot;Hello world&quot;)
 </code></pre>
 <p>Once ran, Dream Seeker will open and you will see Hello World printed on the top left of the window. Congratulations!</p>
 <a class="header" href="#anatomy-of-a-dm-program" id="anatomy-of-a-dm-program"><h2>Anatomy of a DM program</h2></a>

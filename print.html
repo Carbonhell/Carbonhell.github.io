@@ -100,6 +100,13 @@
                                 <i class="fa fa-search"></i>
                             </button>
                             
+                            <button id="codebase-toggle" class="icon-button" type="button" title="Change codebase" aria-label="Change codebase" aria-haspopup="true" aria-expanded="false" aria-controls="codebase-list">
+                                <i class="fa fa-tags"></i>
+                            </button>
+                            <ul id="codebase-list" class="theme-popup" aria-label="Codebases" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="raw">BYOND raw <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="tg">/tg/station</button></li>
+                            </ul>
                         </div>
 
                         <h1 class="menu-title">The green book</h1> 
@@ -171,8 +178,11 @@ If you doubleclick a file, the IDE will attempt to open it in...</p>
 <p>Open Dream Maker and let's write your first DM program. To do so, you must create a new environment (the .dme file), from the <code>New</code> tab top-left. Select the project directory and its name, and the IDE will prompt you to create your first .dm file. Simply press OK, and the file will automatically open with some code already in it. Feel free to delete all of it, you won't need this yet.</p>
 <a class="header" href="#printing-hello-world" id="printing-hello-world"><h2>Printing Hello World</h2></a>
 <p>Once the file is completely empty, try to compile this snippet and run it as we said in the previous chapter (CTRL+K and <code>Build</code>, <code>Run</code>):</p>
-<pre><code>/mob/Login()
-    world &lt;&lt; &quot;Hello world&quot;
+<pre><code class="language-raw">    /mob/Login()
+        world &lt;&lt; &quot;Hello world&quot;
+</code></pre>
+<pre><code class="language-tg">    /mob/Login()
+        to_chat(world, &quot;Hello world&quot;)
 </code></pre>
 <p>Once ran, Dream Seeker will open and you will see Hello World printed on the top left of the window. Congratulations!</p>
 <a class="header" href="#anatomy-of-a-dm-program" id="anatomy-of-a-dm-program"><h2>Anatomy of a DM program</h2></a>
@@ -182,17 +192,17 @@ If you doubleclick a file, the IDE will attempt to open it in...</p>
 <p>Keywords used for the concept above and others cannot be used as names of variables, functions or such, or a conflict would happen. If you try to, a compiler error will warn you.</p>
 <a class="header" href="#variables" id="variables"><h1>Variables</h1></a>
 <p>Variables are data containers, which, as the name implies, can get their data changed through assignment operations. If you want to store some data, you will use a variable. The basic syntax is:</p>
-<pre><code>var myVariable = initialValue
+<pre><code>    var myVariable = initialValue
 </code></pre>
 <p>where <code>var</code> is the keyword telling the compiler we're defining a new variable, <code>myVariable</code> is the variable's name, which cannot be a reserved word like <code>var</code> as we said previously. <code>= initialValue</code> is used to assign an initial value to the variable. This is optional, and if omitted, the variable's value will be <code>null</code>, a special value that means the variable holds nothing.
 A key difference in other languages like C is that primitive variables don't need the user to define their type, you can do</p>
-<pre><code>var myVar = &quot;Hello World&quot;
-myVar = 1
+<pre><code>    var myVar = &quot;Hello World&quot;
+    myVar = 1
 </code></pre>
 <p>Without any sort of error. Even though this will work with any sort of var type, we will see futher on that it can cause issues when our variables hold objects and we try to access its methods or such, but we will expand on this later.</p>
 <a class="header" href="#type-casting" id="type-casting"><h2>Type casting</h2></a>
 <p>As we said previously, variables can hold primitive data such as numbers, letters, booleans, but they can also hold objects, which is fundamental for an Object Oriented language like DM. Say you have an <code>/obj/honk</code> object, you're fully able to assign it to a type-less var as we did before with our string and number, but you won't be able to actually access any of the object's data. For now, just remember that the syntax for typecasting is:</p>
-<pre><code>var/your/type/varname = initialValue
+<pre><code>    var/your/type/varname = initialValue
 </code></pre>
 <a class="header" href="#data-types" id="data-types"><h1>Data Types</h1></a>
 <p>Even though variables do not need to have their types defined for primitive data, different types still exist, and variables need their type defined if you are going to assign them an object and you plan to use the variable to access some of the object's properties.</p>

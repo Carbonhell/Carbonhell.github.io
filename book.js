@@ -153,7 +153,9 @@ function playpen_text(playpen) {
     // even if highlighting doesn't apply
     Array
         .from(document.querySelectorAll('code'))
-        .forEach(function (block) { block.classList.add('hljs'); });
+        .forEach(function (block) {
+            block.classList.add('hljs');
+        });
 
     Array.from(document.querySelectorAll("code.language-rust")).forEach(function (block) {
 
@@ -425,6 +427,115 @@ function playpen_text(playpen) {
             case 'End':
                 e.preventDefault();
                 themePopup.querySelector('li:last-child button').focus();
+                break;
+        }
+    });
+})();
+
+(function codebases() {
+    var html = document.querySelector('html');
+    var codebaseToggleButton = document.getElementById('codebase-toggle');
+    var codebasePopup = document.getElementById('codebase-list');
+
+    function showCodebases() {
+        var currentCodebase;
+        try { currentCodebase = localStorage.getItem('mdbook-codebase'); } catch (e) { }
+        if (currentCodebase === null || currentCodebase === undefined) { currentCodebase = 'raw'; }
+        codebasePopup.style.display = 'block';
+        codebaseToggleButton.setAttribute('aria-expanded', true);
+        codebasePopup.querySelector("button#" + currentCodebase).focus();
+    }
+
+    function hideCodebases() {
+        codebasePopup.style.display = 'none';
+        codebaseToggleButton.setAttribute('aria-expanded', false);
+        codebaseToggleButton.focus();
+    }
+
+    function setCodebase(codebase) {
+
+        var previousCodebase;
+        try { previousCodebase = localStorage.getItem('mdbook-codebase'); } catch (e) { }
+        if (previousCodebase === null || previousCodebase === undefined) { previousCodebase = 'raw'; }
+
+        try { localStorage.setItem('mdbook-codebase', codebase); } catch (e) { }
+
+        html.classList.remove(previousCodebase);
+        html.classList.add(codebase);
+        Array
+            .from(document.querySelectorAll('code'))
+            .forEach(function (block) {
+                if (block.classList.length > 1) {
+                    if (!(block.classList.contains(codebase) || block.classList.contains("language-"+codebase))) {block.style.display = "none";}
+                    else {block.style.display = "inherit";}
+                }
+        });
+    }
+
+    // Set theme
+    var codebase;
+    try { codebase = localStorage.getItem('mdbook-codebase'); } catch(e) { }
+    if (codebase === null || codebase === undefined) { codebase = 'raw'; }
+
+    setCodebase(codebase);
+
+    codebaseToggleButton.addEventListener('click', function () {
+        if (codebasePopup.style.display === 'block') {
+            hideCodebases();
+        } else {
+            showCodebases();
+        }
+    });
+
+    codebasePopup.addEventListener('click', function (e) {
+        var codebase = e.target.id || e.target.parentElement.id;
+        setCodebase(codebase);
+    });
+
+    codebasePopup.addEventListener('focusout', function(e) {
+        // e.relatedTarget is null in Safari and Firefox on macOS (see workaround below)
+        if (!!e.relatedTarget && !codebaseToggleButton.contains(e.relatedTarget) && !codebasePopup.contains(e.relatedTarget)) {
+            hideCodebases();
+        }
+    });
+
+    // Should not be needed, but it works around an issue on macOS & iOS: https://github.com/rust-lang-nursery/mdBook/issues/628
+    document.addEventListener('click', function(e) {
+        if (codebasePopup.style.display === 'block' && !codebaseToggleButton.contains(e.target) && !codebasePopup.contains(e.target)) {
+            hideCodebases();
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) { return; }
+        if (!codebasePopup.contains(e.target)) { return; }
+
+        switch (e.key) {
+            case 'Escape':
+                e.preventDefault();
+                hideCodebases();
+                break;
+            case 'ArrowUp':
+                e.preventDefault();
+                var li = document.activeElement.parentElement;
+                if (li && li.previousElementSibling) {
+                    li.previousElementSibling.querySelector('button').focus();
+                }
+                break;
+            case 'ArrowDown':
+                e.preventDefault();
+                var li = document.activeElement.parentElement;
+                if (li && li.nextElementSibling) {
+                    li.nextElementSibling.querySelector('button').focus();
+                }
+                break;
+            case 'Home':
+                e.preventDefault();
+                codebasePopup.querySelector('li:first-child button').focus();
+                break;
+            case 'End':
+                e.preventDefault();
+                codebasePopup.querySelector('li:last-child button').focus();
                 break;
         }
     });
