@@ -455,6 +455,7 @@ function playpen_text(playpen) {
     function setCodebase(codebase) {
 
         var previousCodebase;
+        var codebaseLabel = document.getElementById('codebase-label');
         try { previousCodebase = localStorage.getItem('mdbook-codebase'); } catch (e) { }
         if (previousCodebase === null || previousCodebase === undefined) { previousCodebase = 'raw'; }
 
@@ -462,6 +463,7 @@ function playpen_text(playpen) {
 
         html.classList.remove(previousCodebase);
         html.classList.add(codebase);
+        codebaseLabel.textContent = codebase;
         Array
             .from(document.querySelectorAll('code'))
             .forEach(function (block) {

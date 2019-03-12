@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installation.html"><strong aria-hidden="true">2.1.</strong> Installation</a></li><li><a href="hello_world.html"><strong aria-hidden="true">2.2.</strong> Hello World</a></li></ol></li><li><a href="basic_concepts.html"><strong aria-hidden="true">3.</strong> Basic Concepts</a></li><li><ol class="section"><li><a href="variables.html"><strong aria-hidden="true">3.1.</strong> Variables</a></li><li><a href="data_types.html"><strong aria-hidden="true">3.2.</strong> Data Types</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction (Read this first!)</a></li><li><a href="getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installation.html"><strong aria-hidden="true">2.1.</strong> Installation</a></li><li><a href="hello_world.html"><strong aria-hidden="true">2.2.</strong> Hello World</a></li></ol></li><li><a href="basic_concepts.html"><strong aria-hidden="true">3.</strong> Basic Concepts</a></li><li><ol class="section"><li><a href="variables.html"><strong aria-hidden="true">3.1.</strong> Variables</a></li><li><a href="data_types.html"><strong aria-hidden="true">3.2.</strong> Data Types</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -102,6 +102,7 @@
                             
                             <button id="codebase-toggle" class="icon-button" type="button" title="Change codebase" aria-label="Change codebase" aria-haspopup="true" aria-expanded="false" aria-controls="codebase-list">
                                 <i class="fa fa-tags"></i>
+                                <span id="codebase-label"></span>
                             </button>
                             <ul id="codebase-list" class="theme-popup" aria-label="Codebases" role="menu">
                                 <li role="none"><button role="menuitem" class="theme" id="raw">BYOND raw <span class="default">(default)</span></button></li>
@@ -145,6 +146,7 @@
                     <main>
                         <a class="header" href="#introduction" id="introduction"><h1>Introduction</h1></a>
 <p>Welcome to the green book! The point of this book is to provide insight to BYOND players looking towards contributing on the game they play on, or who decide to start their own BYOND project. The objective of this guide is to teach coders the Dream Maker programming language and its lesser-known details. If you find an error or you want to contribute, you can go check our <a href="https://github.com/Carbonhell/The-green-book">GitHub</a>. You can also join the coderbus <a href="https://discord.gg/Vh8TJp9">discord</a> if you need help with code or this guide itself</p>
+<p>Be sure to choose the codebase you're using from the <code>Change codebase</code> option top-left, so that this guide will show you the examples relative to it. Select <code>BYOND raw</code> if you're not using any codebase (aka you're starting from scratch, an empty project).</p>
 <a class="header" href="#getting-started" id="getting-started"><h1>Getting Started</h1></a>
 <p>This is where your journey with BYOND starts. The guide will not assume any sort of prior knowledge, such as how operators work. In this chapter, we'll discuss:</p>
 <ul>
@@ -160,7 +162,7 @@
 </ol>
 <a class="header" href="#dream-maker" id="dream-maker"><h2>Dream Maker</h2></a>
 <p>The first is what you'll use to code. It's the IDE which you use to write code, compile and eventually run for testing purposes (although, for large projects, it's suggested to use Dream Daemon to run the code, since it's how you'd run it in a production environment).</p>
-<p>By default, it is located in BYOND bin folder, accessible from wherever you installed byond (normally, Program Files(x86) ).</p>
+<p>By default, it is located in BYOND bin folder, accessible from wherever you installed byond (normally, Program Files(x86) ). You can also open it with the CTRL+M macro from BYOND itself.</p>
 <p>Once opened, you will see a window separated in three parts, normally.</p>
 <a class="header" href="#the-file-tree" id="the-file-tree"><h3>The file tree</h3></a>
 <p>The rectangle on the left with a white background is the file tree. It basically shows the files of your project the IDE cares about. This means, all DM related files (.dm, .dmi, .dme, dmf, dms, dmm), images and sounds. In particular, .dm and .dmm files will have a small box on the left of the filename, which you can mark. If there is a checkmark in said box, then the file is included in the .dme, which means it will be compiled when the .dme is compiled, otherwise it will be ignored.
@@ -175,19 +177,20 @@ If you doubleclick a file, the IDE will attempt to open it in...</p>
 <p>This is simply the program you use to connect to servers. If you've ever played a game on BYOND, this is what you're running to play it.</p>
 <p>Now that you know the basics, you can proceed to your first Hello World program.</p>
 <a class="header" href="#hello-world" id="hello-world"><h1>Hello World</h1></a>
-<p>Open Dream Maker and let's write your first DM program. To do so, you must create a new environment (the .dme file), from the <code>New</code> tab top-left. Select the project directory and its name, and the IDE will prompt you to create your first .dm file. Simply press OK, and the file will automatically open with some code already in it. Feel free to delete all of it, you won't need this yet.</p>
+<p>Open Dream Maker and let's write your first DM program. To do so, you must create a new environment or open an already existing one (the .dme file), from the <code>File</code> tab top-left. If you're creating a new environment, select the project directory and its name, and the IDE will prompt you to create your first .dm file. Simply press OK, and the file will automatically open with some code already in it. Feel free to delete all of it, you won't need this yet.
+Instead, if you're opening your codebase's .dme file, simply go to <code>File</code>, create a new file (Location doesn't matter for this code) and go to the next step.</p>
 <a class="header" href="#printing-hello-world" id="printing-hello-world"><h2>Printing Hello World</h2></a>
-<p>Once the file is completely empty, try to compile this snippet and run it as we said in the previous chapter (CTRL+K and <code>Build</code>, <code>Run</code>):</p>
-<pre><code class="language-raw">    /mob/Login()
-        world &lt;&lt; &quot;Hello world&quot;
+<p>Try to compile this snippet and run it as we said in the previous chapter (CTRL+K, <code>Build</code> and <code>Run</code>):</p>
+<pre><code class="language-raw">/mob/Login()
+    world &lt;&lt; &quot;Hello world&quot;
 </code></pre>
-<pre><code class="language-tg">    /mob/Login()
-        ..()
-        to_chat(world, &quot;Hello world&quot;)
+<pre><code class="language-tg">/mob/Login()
+    ..()
+    to_chat(world, &quot;Hello world&quot;)
 </code></pre>
 <p>Once ran, Dream Seeker will open and you will see Hello World printed on the top left of the window. Congratulations!</p>
 <a class="header" href="#anatomy-of-a-dm-program" id="anatomy-of-a-dm-program"><h2>Anatomy of a DM program</h2></a>
-<p>So, what exactly happened? Basically, you're making something special happen when a <code>mob</code>, which in this example is a player aka you, logs in. The special behaviour is outputting the string <code>Hello World</code> to the whole world, which is basically only you in our example. Notice the indentation before the second line, it isn't an error, it's actually vital in DM programs. If you mess up the indentation, your program will fail to compile at best, or have undefined behaviour at worst. How you indent code is up to you, you can use spaces or tabs, as long as you're coherent in your whole project. Mixing indentation types up will cause your project to fail compiling.</p>
+<p>So, what exactly happened? Basically, you're making something special happen when a <code>mob</code>, which in this example is a player aka you, logs in. The special behaviour is outputting the string <code>Hello World</code> to the whole world, which is basically only you in our example. Notice the indentation after the first line, it isn't an error, it's actually vital in DM programs. If you mess up the indentation, your program will fail to compile at best, or have undefined behaviour at worst. How you indent code is up to you, you can use spaces or tabs, as long as you're coherent in your whole project. Mixing indentation types up will cause your project to fail compiling.</p>
 <a class="header" href="#basic-concepts" id="basic-concepts"><h1>Basic Concepts</h1></a>
 <p>This chapter covers concepts that are shares by nearly all programming languages, such as conditional statements, loops, variables, operators and the such. If DM is your first programming language, you have to read this. If not, quickly skimming over it may be useful to see DM's syntax for basic concepts.</p>
 <p>Keywords used for the concept above and others cannot be used as names of variables, functions or such, or a conflict would happen. If you try to, a compiler error will warn you.</p>
