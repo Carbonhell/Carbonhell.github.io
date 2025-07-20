@@ -19,3 +19,8 @@ zola serve
 # Useful resources for development
 - https://github.com/not-matthias/not-matthias.github.io the blog of the theme author
 - https://github.com/not-matthias/apollo the repository of the theme
+
+# TODOs
+- Clean up the mess and TODOs under static/js
+- Allow viewing past versions of the toolbox to see how technologies changed over time
+- Enable Giscus

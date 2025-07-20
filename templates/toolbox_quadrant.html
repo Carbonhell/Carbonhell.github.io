@@ -1,0 +1,96 @@
+{% extends "page.html" %}
+
+{% block custom_header %}
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script type="module" src="js/tech_radar_partial.js"></script>
+<style>
+    .layout {
+        display: grid;
+        grid-template-columns: minmax(500px, 40%) 1fr;
+        gap: 2rem;
+    }
+
+    .radar-container {
+        position: sticky;
+        top: 25%;
+        height: fit-content;
+    }
+
+    .content h1 {
+        position: sticky;
+        top: 0;
+        background: var(--bg-0);
+        padding: 1rem 0;
+        margin: 0;
+        z-index: 1;
+    }
+
+    h2 {
+        position: relative;
+        z-index: 0;
+    }
+
+    .tooltip {
+        position: absolute;
+        padding: 10px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        max-width: 500px;
+        width: 90%;
+        z-index: 1000;
+    }
+
+    .modal-close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+    }
+</style>
+{% endblock custom_header %}
+
+{% block main_content %}
+<div class="tooltip"></div>
+<div class="backdrop"></div>
+<div class="modal">
+    <span class="modal-close">×</span>
+    <h2 id="modal-title"></h2>
+    <p id="modal-description"></p>
+    <div id="modal-notes"></div>
+</div>
+
+<div class="layout">
+    <div class="radar-container">
+        <div id="radar" data-quadrant="{{ page.extra.quadrant }}"></div>
+    </div>
+
+    <div class="content">
+        {{ self::content(page=page) }}
+    </div>
+</div>
+{% endblock main_content %}
