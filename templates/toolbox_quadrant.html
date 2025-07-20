@@ -2,7 +2,7 @@
 
 {% block custom_header %}
 <script src="https://d3js.org/d3.v7.min.js"></script>
-<script type="module" src="js/tech_radar_partial.js"></script>
+<script type="module" src={{ get_url(path="js/tech_radar_partial.js" ) }}></script>
 <style>
     .layout {
         display: grid;
