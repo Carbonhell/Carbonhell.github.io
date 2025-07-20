@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" class="dark light">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https:&#x2F;&#x2F;carbonic.dev">
+
+    
+
+    
+    
+    
+    <title>
+        
+        Pixi
+        
+    </title>
+
+    
+    <meta property="og:title"
+          content="Pixi" />
+    
+    
+
+    
+    
+    <meta property="og:description" content="Next-gen package manager for reproducible development setups" />
+    
+    
+
+    
+    
+    <meta name="description" content="Next-gen package manager for reproducible development setups" />
+    
+    
+
+    
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    
+    
+    <link href=https://carbonic.dev/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    <script defer
+            src="/js/imamu.js"
+            data-website-id="7141a5d9-837a-4daa-96f1-b22e8a3f3a1b"
+            data-host-url="https:&#x2F;&#x2F;api-gateway.umami.dev&#x2F;"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+    
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://carbonic.dev/theme/light.css" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://carbonic.dev/theme/dark.css"
+          media="(prefers-color-scheme: dark)" />
+    
+
+    <!-- Set the correct theme in the script -->
+
+    
+    <script src=https://carbonic.dev/js/themetoggle.js></script>
+
+    
+    <script>
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme("dark");
+        } else {
+            setTheme("light");
+        }
+    </script>
+    
+    
+
+
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="https://carbonic.dev/main.css" />
+
+    
+
+    <script defer
+            src="https://carbonic.dev/search_index.en.js?h=838f609c1fe4356fa9d6"></script>
+    <script defer
+            src="https://carbonic.dev/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+    
+</head>
+
+    <body>
+        <div class="left-content">
+            
+            
+        </div>
+
+        <div class="content">
+            <nav>
+    <div class="left-nav">
+        
+            <a href=https:&#x2F;&#x2F;carbonic.dev>Carbonic</a>
+        
+
+
+        <div class="socials">
+            
+                <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;carbonhell" class="social">
+                    <img alt="github" src="https://carbonic.dev/icons/social/github.svg">
+                </a>
+            
+        </div>
+    </div>
+
+    <div class="right-nav">
+        
+            <a href=https://carbonic.dev/posts style="margin-right: 0.5em">&#x2F;posts</a>
+        
+            <a href=https://carbonic.dev/linkshelf style="margin-right: 0.5em">&#x2F;linkshelf</a>
+        
+            <a href=https://carbonic.dev/toolbox style="margin-right: 0.5em">&#x2F;toolbox</a>
+        
+            <a href=https://carbonic.dev/now style="margin-right: 0.5em">&#x2F;now</a>
+        
+            <a href=https://carbonic.dev/tags style="margin-right: 0.5em">&#x2F;tags</a>
+        
+
+        
+            <button id="search-button"
+                    class="search-button"
+                    title="$SHORTCUT to open search">
+                <img src="https://carbonic.dev/icons/search.svg"
+                    alt="Search"
+                    class="search-icon">
+            </button>
+
+            <div id="searchModal"
+                class="search-modal js"
+                role="dialog"
+                aria-labelledby="modalTitle">
+                <div id="modal-content">
+                    <h1 id="modalTitle" class="page-header">Search</h1>
+                    <div id="searchBar">
+                        <input id="searchInput"
+                            role="combobox"
+                            autocomplete="off"
+                            spellcheck="false"
+                            aria-expanded="false"
+                            aria-controls="results-container"
+                            placeholder="Search..." />
+                        <button id="clear-search" class="clear-button" title="Clear search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="results-container">
+                        <div id="results-info">
+                            <span id="zero_results" style="display: none;">No results</span>
+                            <span id="one_result" style="display: none;">1 result</span>
+                            <span id="many_results" style="display: none;">$NUMBER results</span>
+                        </div>
+                        <div id="results" role="listbox"></div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+    </div>
+</nav>
+
+
+            
+            
+    
+<div class="visible-element-observer-root" data-selector="main article p">
+    <main>
+        <article>
+            <div class="title">
+                
+                
+    
+    <div class="page-header">
+        Pixi
+    </div>
+    
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2025-07-05</time>
+                    
+
+
+                    
+
+                    
+
+                    
+
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+
+                    
+
+                </div>
+            </div>
+
+            
+
+            <section class="body">
+                
+            </section>
+        </article>
+    </main>
+</div>
+
+
+
+            
+                
+            
+
+            
+        </div>
+
+        <div class="right-content">
+            
+    
+    
+
+        </div>
+    </body>
+
+</html>

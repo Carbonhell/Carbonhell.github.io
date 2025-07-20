@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="dark light">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https:&#x2F;&#x2F;carbonic.dev">
+
+    
+
+    
+    
+    
+    <title>
+        
+        Toolbox
+        
+    </title>
+
+    
+    <meta property="og:title"
+          content="Toolbox" />
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    
+    
+    <link href=https://carbonic.dev/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    <script defer
+            src="/js/imamu.js"
+            data-website-id="7141a5d9-837a-4daa-96f1-b22e8a3f3a1b"
+            data-host-url="https:&#x2F;&#x2F;api-gateway.umami.dev&#x2F;"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+    
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://carbonic.dev/theme/light.css" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://carbonic.dev/theme/dark.css"
+          media="(prefers-color-scheme: dark)" />
+    
+
+    <!-- Set the correct theme in the script -->
+
+    
+    <script src=https://carbonic.dev/js/themetoggle.js></script>
+
+    
+    <script>
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme("dark");
+        } else {
+            setTheme("light");
+        }
+    </script>
+    
+    
+
+
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="https://carbonic.dev/main.css" />
+
+    
+
+    <script defer
+            src="https://carbonic.dev/search_index.en.js?h=838f609c1fe4356fa9d6"></script>
+    <script defer
+            src="https://carbonic.dev/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script type="module" src=https://carbonic.dev/js/tech_radar.js></script>
+
+<style>
+    .tooltip {
+        position: absolute;
+        padding: 10px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        max-width: 500px;
+        width: 90%;
+        z-index: 1000;
+    }
+
+    .modal-close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+    }
+</style>
+
+</head>
+
+    <body>
+        <div class="left-content">
+            
+            
+        </div>
+
+        <div class="content">
+            <nav>
+    <div class="left-nav">
+        
+            <a href=https:&#x2F;&#x2F;carbonic.dev>Carbonic</a>
+        
+
+
+        <div class="socials">
+            
+                <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;carbonhell" class="social">
+                    <img alt="github" src="https://carbonic.dev/icons/social/github.svg">
+                </a>
+            
+        </div>
+    </div>
+
+    <div class="right-nav">
+        
+            <a href=https://carbonic.dev/posts style="margin-right: 0.5em">&#x2F;posts</a>
+        
+            <a href=https://carbonic.dev/linkshelf style="margin-right: 0.5em">&#x2F;linkshelf</a>
+        
+            <a href=https://carbonic.dev/toolbox style="margin-right: 0.5em">&#x2F;toolbox</a>
+        
+            <a href=https://carbonic.dev/now style="margin-right: 0.5em">&#x2F;now</a>
+        
+            <a href=https://carbonic.dev/tags style="margin-right: 0.5em">&#x2F;tags</a>
+        
+
+        
+            <button id="search-button"
+                    class="search-button"
+                    title="$SHORTCUT to open search">
+                <img src="https://carbonic.dev/icons/search.svg"
+                    alt="Search"
+                    class="search-icon">
+            </button>
+
+            <div id="searchModal"
+                class="search-modal js"
+                role="dialog"
+                aria-labelledby="modalTitle">
+                <div id="modal-content">
+                    <h1 id="modalTitle" class="page-header">Search</h1>
+                    <div id="searchBar">
+                        <input id="searchInput"
+                            role="combobox"
+                            autocomplete="off"
+                            spellcheck="false"
+                            aria-expanded="false"
+                            aria-controls="results-container"
+                            placeholder="Search..." />
+                        <button id="clear-search" class="clear-button" title="Clear search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="results-container">
+                        <div id="results-info">
+                            <span id="zero_results" style="display: none;">No results</span>
+                            <span id="one_result" style="display: none;">1 result</span>
+                            <span id="many_results" style="display: none;">$NUMBER results</span>
+                        </div>
+                        <div id="results" role="listbox"></div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+    </div>
+</nav>
+
+
+            
+            
+
+<div class="visible-element-observer-root" data-selector="main article p">
+    <main>
+        <article>
+            <div class="title">
+                
+                
+    
+    <div class="page-header">
+        Toolbox
+    </div>
+    
+
+
+                <div class="meta">
+                    
+
+
+                    
+                        :: Updated on <time>2025-07-20</time>
+                    
+
+                    
+
+                    
+
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+
+                    
+
+                </div>
+            </div>
+
+            
+
+            <section class="body">
+                <p>This is a collection of tools, frameworks, programming languages, and services that I keep in my toolbox.</p>
+<p>The format of this page follows a simplified setup based on <a href="https://www.thoughtworks.com/radar">Thoughtworks' technology radar</a>.
+Technologies I consider on hold are simply not present. They might be mentioned in the sections of alternatives that are present, such as TypeScript being my go-to choice over JavaScript in pretty much any non-trivial case.</p>
+<p>Entries under "Assess" are ones I am keeping my eye on without planning on trying out in the short term.</p>
+<p>"Trial" lists technologies I plan to try out in the short term.</p>
+<p>"Adopt" showcases my actual toolbox: technologies I rely on if I have full freedom when choosing a particular problem suited for them.</p>
+<div class="note-container">
+    
+            <div class="note-header">
+                
+                    <div class="note-icon"><p>Under construction</p>
+</div>
+                
+            </div>
+            <div class="note-content"><p>Several technologies are still missing. I'll add them in the following days.</p>
+</div>
+        
+    </div>
+
+            </section>
+        </article>
+    </main>
+</div>
+
+<div class="container">
+    <div id="radar"></div>
+</div>
+<div class="tooltip"></div>
+<div class="backdrop"></div>
+<div class="modal">
+    <span class="modal-close">×</span>
+    <h2 id="modal-title"></h2>
+    <p id="modal-description"></p>
+    <div id="modal-notes"></div>
+</div>
+
+
+            
+                
+            
+
+            
+        </div>
+
+        <div class="right-content">
+            
+    
+    
+
+        </div>
+    </body>
+
+</html>
